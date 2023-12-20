@@ -1,0 +1,1 @@
+ffmpeg -f gdigrab -r 2 -probesize 40M -threads 1 -i desktop -vcodec libx264 -b:v 256k "D:\work\CEDT_work\comprog_final\6633080421-final.mp4"

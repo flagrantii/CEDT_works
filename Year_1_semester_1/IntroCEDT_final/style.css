@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 80%; 
+    border-radius: 1em;
+    border-collapse: collapse;
+    background-color: rgb(221, 221, 221);
+    color: black;
+}
+
+#main-table td {
+    padding: 15px;
+    border-collapse: collapse;
+    border: 1px solid rgb(193, 193, 193);
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+#head-table {
+    background-color: rgb(2, 45, 236);
+    border-radius: 1em;
+    padding: 15px; 
+    color: white;
+}
+th {
+    padding: 15px;
+    border: 1px solid rgb(193, 193, 193);
+}
+#total-output{
+    background-color: rgb(2, 45, 236);
+    color: white;
+}
+#add_btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-duration: 0.4s;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+#delete_btn{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-duration: 0.4s;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+#delete_btn:hover{
+    background-color: rgb(123, 0, 0);
+}
+#add_btn:hover{
+    background-color: rgb(3, 65, 3);
+}
+input,select{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+    
