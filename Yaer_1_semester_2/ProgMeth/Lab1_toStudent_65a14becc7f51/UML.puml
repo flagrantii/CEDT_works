@@ -1,0 +1,200 @@
+@startuml
+class logic.components.Status {
+- int hp
+- int durability
+- int attack
+- int magic
++ int getDurability()
++ int getHp()
++ int getAttack()
++ int getMagic()
++ void setAttack(int)
++ void setDurability(int)
++ void setHp(int)
++ void setMagic(int)
++ boolean equals(Object)
++ void addStatus(Status)
+}
+class logic.components.Player {
+- String name
+- Status status
+- int energy
+- int money
+- ArrayList<Food> foods
+- ArrayList<Potion> potions
+- ArrayList<Ore> ores
++ ArrayList<Potion> getPotions()
++ ArrayList<Food> getFoods()
++ String getName()
++ int getEnergy()
++ ArrayList<Ore> getOres()
++ int getMoney()
++ Status getStatus()
++ void setName(String)
++ void setPotions(ArrayList<Potion>)
++ void setFoods(ArrayList<Food>)
++ void setEnergy(int)
++ void setMoney(int)
++ void setOres(ArrayList<Ore>)
++ void setStatus(Status)
++ boolean buyOre(Ore)
++ void drinkPotion(int)
++ void eatFood(int)
++ void sellPotion(int)
++ void sellFood(int)
++ void attack(Monster)
++ void magicAttack(Monster)
+}
+class logic.components.Potion {
+- String name
+- int price
+- Status increasingStatus
++ String getName()
++ int getPrice()
++ Status getIncreasingStatus()
++ void setName(String)
++ void setPrice(int)
++ void setIncreasingStatus(Status)
++ boolean equals(Object)
+}
+class grader.FoodTest {
+~ void testConstructor()
+~ void testSetName()
+~ void testSetPrice()
+~ void testSetEnergy()
+}
+class logic.components.Ore {
+- String name
+- int cost
++ String getName()
++ int getCost()
++ void setName(String)
++ void setCost(int)
++ boolean equals(Object)
+}
+class grader.MonsterTest {
+~ void testConstructor()
+~ void testAttack()
+~ void testMagicAttack()
+~ void testSetName()
+~ void testSetStatus()
+~ void testSetFood()
+~ void testSetPotion()
+}
+class grader.OreTest {
+~ void testConstructor()
+~ void testSetName()
+~ void testSetCost()
+}
+class grader.GameControllerTest {
++ void testEndDay()
++ void testCreateNewStatus()
++ void testCreateNewStatusException()
+}
+class grader.PlayerTest {
+~ void testConstructor()
+~ void testDetailedConstructor()
+~ void testBuyOre()
+~ void testDrinkPotion()
+~ void testEatFood()
+~ void testSellPotion()
+~ void testSellFood()
+~ void testAttack()
+~ void testMagicAttack()
+~ void testSetName()
+~ void testSetStatus()
+~ void testSetEnergy()
+~ void testSetMoney()
+~ void testSetFoods()
+~ void testSetOres()
+}
+class logic.components.Monster {
+- String name
+- Status status
+- Food food
+- Potion potion
++ String getName()
++ Food getFood()
++ Potion getPotion()
++ Status getStatus()
++ void setName(String)
++ void setFood(Food)
++ void setPotion(Potion)
++ void setStatus(Status)
++ void attack(Player)
++ void magicAttack(Player)
+}
+class grader.MarketTest {
+~ void testConstructor()
+~ void testSetName()
+~ void testSetFood()
+~ void testSetPotions()
+}
+class logic.game.GameController {
++ ArrayList<Market> markets
++ ArrayList<Player> players
++ ArrayList<Monster> monsters
++ ArrayList<Ore> ores
++ {static} GameController instance
++ boolean gameEnd
++ {static} GameController getInstance()
++ void addMarket(Market)
++ void addMonster(Monster)
++ void addPlayer(Player)
++ void endDay()
++ void removeDeadPlayerAndMonster()
++ boolean buyOre(int,int)
++ boolean checkGameEnd()
++ {static} Status createNewStatus(int,int,int,int)
+}
+class grader.PotionTest {
+~ void testConstructor()
+~ void testSetName()
+~ void testSetPrice()
+~ void testSetIncreasingStatus()
+}
+class exception.BadStatusException {
+}
+class logic.components.Market {
+- String name
+- ArrayList<Food> foods
+- ArrayList<Potion> potions
++ String getName()
++ ArrayList<Food> getFoods()
++ ArrayList<Potion> getPotions()
++ void setName(String)
++ void setFoods(ArrayList<Food>)
++ void setPotions(ArrayList<Potion>)
+}
+class logic.components.Food {
+- String name
+- int price
+- int energy
++ String getName()
++ int getEnergy()
++ int getPrice()
++ void setName(String)
++ void setEnergy(int)
++ void setPrice(int)
++ boolean equals(Object)
+}
+class grader.StatusTest {
+~ void testConstructor()
+~ void testConstructorException()
+~ void testAddStatus()
+~ void testSetHp()
+~ void testSetHpException()
+~ void testSetDurability()
+~ void testSetDurabilityException()
+~ void testSetAttack()
+~ void testSetAttackException()
+~ void testSetMagic()
+~ void testSetMagicException()
+}
+class main.Main {
++ {static} void main(String[])
+}
+
+
+exception.Exception <|-- exception.BadStatusException
+@enduml
